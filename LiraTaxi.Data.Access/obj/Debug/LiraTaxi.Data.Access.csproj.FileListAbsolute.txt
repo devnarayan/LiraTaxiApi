@@ -1,0 +1,10 @@
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\LiraTaxi.Data.Access.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\LiraTaxi.Data.Access.pdb
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\LiraTaxi.Data.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\LiraTaxi.Data.pdb
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\obj\Debug\LiraTaxi.Data.Access.csprojResolveAssemblyReference.cache
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\obj\Debug\LiraTaxi.Data.Access.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\obj\Debug\LiraTaxi.Data.Access.pdb
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\LiraTaxi.Data.Access.dll.config
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\log4net.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data.Access\bin\Debug\log4net.xml

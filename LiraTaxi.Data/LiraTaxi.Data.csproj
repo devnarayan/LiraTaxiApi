@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{532B60DD-B401-4C83-9966-66DE1AB104D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LiraTaxi.Data</RootNamespace>
+    <AssemblyName>LiraTaxi.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Booking\BookingApplyModel.cs" />
+    <Compile Include="Booking\BookingModel.cs" />
+    <Compile Include="Booking\BookingSearchModel.cs" />
+    <Compile Include="Booking\BookingShareApplyModel.cs" />
+    <Compile Include="Booking\BookingShareModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DriverMdl\DriverCreditCardModel.cs" />
+    <Compile Include="DriverMdl\DriverFareOfferModel.cs" />
+    <Compile Include="DriverMdl\DriverModel.cs" />
+    <Compile Include="DriverMdl\DriverNWaySaleModel.cs" />
+    <Compile Include="DriverMdl\DriverRatingModel.cs" />
+    <Compile Include="DriverMdl\DriverSearchModel.cs" />
+    <Compile Include="DriverMdl\DriverSearchRangeModel.cs" />
+    <Compile Include="DriverMdl\OfferApplyModel.cs" />
+    <Compile Include="DriverMdl\UpdateLatLongModel.cs" />
+    <Compile Include="Model\PaneltyMasterModel.cs" />
+    <Compile Include="Model\StoreManagerSearchModel.cs" />
+    <Compile Include="Model\StoreManagerModel.cs" />
+    <Compile Include="PassengerMdl\PassengerModel.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="PassengerMdl\PassengerCreditCardModel.cs" />
+    <Compile Include="PassengerMdl\PassengerNWaySaleModel.cs" />
+    <Compile Include="PassengerMdl\PassengerRatingModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

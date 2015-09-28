@@ -1,0 +1,64 @@
+﻿@using LiraTaxi.Web.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container" data-ng-controller="mainCtrl as vm">
+    <div class="main-sec">
+        <div class="menu-sm">
+            <ul class="nav nav-tabs n-tabs nav-justified">
+                <li class="active"><a href="#"><i class="fa fa-taxi"></i> &nbsp;&nbsp;Login</a></li>
+                <li><a href="~/Admin/Access/Signup"><i class="fa fa-tags"></i> &nbsp;&nbsp;Register</a></li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                <div class="mid-panel">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <section id="loginForm">
+                                <div>
+                                    <span data-ng-show="vm.isRegistered">User Registered Successfully</span><br />
+                                    <span data-ng-show="vm.isLoggedIn">Hello : {{vm.userName}}</span><br />
+                                    <span data-ng-show="vm.isLoggedIn">Your Bearer Token is : {{vm.bearerToken}}</span>
+                                </div>
+                                <br />
+                                <div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">UserName</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="userName" placeholder="Name" data-ng-model="vm.userData.userName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">Password</label>
+                                        <div class="col-md-8">
+                                            <input name="password" placeholder="Password" data-ng-model="vm.userData.password" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-3 col-md-8">
+                                            <input type="button" id="logniUser" value="Login" data-ng-click="vm.loginUser()" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-4">
+                            <section id="socialLoginForm"></section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script src="agjs/app.js"></script>
+<script src="agjs/mainCtrl.js"></script>
+<script src="agjs/userAccountService.js"></script>
+}

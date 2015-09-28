@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Lira Taxi</title>
+    <!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/slider.css" />
+
+    <!-- Colors -->
+    <link href="css/css-app.css" rel="stylesheet" media="screen">
+    <!-- <link href="css/css-app-green.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="css/css-app-purple.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="css/css-app-red.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="css/css-app-orange.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="css/css-app-yellow.css" rel="stylesheet" media="screen"> -->
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
+
+    <script type="text/javascript">
+    var basePath = '@System.Configuration.ConfigurationManager.AppSettings["BasePath"]'
+    localStorage.setItem("basePath", basePath);
+
+    </script>
+</head>
+<body data-spy="scroll" data-target="#navbar-scroll">
+    <div data-ng-controller="HeaderController">
+        <!-- /.preloader -->
+        <div id="preloader"></div>
+        <div id="top"></div>
+        <!-- Full Page Image Header Area -->
+        @RenderSection("Menubar", false)
+    </div>
+  
+      @RenderBody()
+   
+    <!-- Footer================================================== -->
+    <div data-ng-controller="FooterController">
+        <footer>
+            <div class="container">
+                <div class="row">
+
+                    <div class="six columns info">
+
+                        <div class="footer-logo">
+                            <a href="#">
+                                <img src="images/footer-logo.png" alt="" />
+                            </a>
+                        </div>
+
+                        <p>
+                            This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                            Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                            nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                        </p>
+
+                    </div>
+
+                    <div class="six columns right-cols">
+
+                        <div class="row">
+
+                            <div class="columns">
+                                <h3 class="address">Come Visit</h3>
+                                <p>
+                                    1600 Amphitheatre Parkway<br>
+                                    Mountain View, CA<br>
+                                    94043 US
+                                </p>
+                            </div>
+
+                            <div class="columns">
+                                <h3 class="social">socialize</h3>
+                                <ul>
+                                    <li><a href="#">Facebook</a></li>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#">GooglePlus</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="columns last">
+                                <h3 class="contact">Contact Us</h3>
+                                <ul>
+                                    <li><a href="tel:6473438234">647.343.8234</a></li>
+                                    <li><a href="tel:1234567890">123.456.7890</a></li>
+                                    <li><a href="mailto:someone@woo.com">someone@woosite.com</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!-- Nested Row End -->
+
+                    </div>
+
+                    <p class="copyright">&copy; 2015 | Design by <a title="Engineerbabu" href="http://www.engineerbabu.com/">Engineerbabu</a></p>
+
+                    <div class="top-scroll" id="go-top">
+                        <a class="linear" title="Back to Top" href="#top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+                    </div>
+
+                </div> <!-- Row End -->
+            </div>
+        </footer> <!-- Footer End-->
+    </div>
+    <!-- /.javascript files -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/modernizr.js"></script>
+    <script src="~/js/matchMedia.js"></script>
+    <script src="~/js/jquery.backgroundvideo.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.nav.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/ekko-lightbox-min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.cslider.js"></script>
+    <script type="text/javascript">
+			$(function() {
+
+			$('#da-slider').cslider({
+				autoplay	: true,
+				bgincrement	: 450
+				});
+
+			});
+    </script>
+    <script type="text/javascript">
+
+		$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox(); });
+    </script>
+    <script>
+			new WOW().init();
+    </script>
+    @Scripts.Render("~/bundles/angularjs")
+    @RenderSection("scripts",false)
+</body>
+</html>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LiraTaxiDBModelStoreContainer" CdmEntityContainer="LiraTaxiDBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="VerifyCode" ColumnName="VerifyCode" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="BookingType" ColumnName="BookingType" />
+          <ScalarProperty Name="VehicalType" ColumnName="VehicalType" />
+          <ScalarProperty Name="PickupPoint" ColumnName="PickupPoint" />
+          <ScalarProperty Name="DestinationPoint" ColumnName="DestinationPoint" />
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="DropTime" ColumnName="DropTime" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DriverTip" ColumnName="DriverTip" />
+          <ScalarProperty Name="nWayPaid" ColumnName="nWayPaid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingApplies">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.BookingApply">
+        <MappingFragment StoreEntitySet="BookingApply">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingShares">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.BookingShare">
+        <MappingFragment StoreEntitySet="BookingShare">
+          <ScalarProperty Name="BookingShareID" ColumnName="BookingShareID" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="BookingType" ColumnName="BookingType" />
+          <ScalarProperty Name="VehicalType" ColumnName="VehicalType" />
+          <ScalarProperty Name="PickupPoint" ColumnName="PickupPoint" />
+          <ScalarProperty Name="DestinationPoint" ColumnName="DestinationPoint" />
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="DropTime" ColumnName="DropTime" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="ShareDate" ColumnName="ShareDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DriverTip" ColumnName="DriverTip" />
+          <ScalarProperty Name="nWayPaid" ColumnName="nWayPaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookingShareApplies">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.BookingShareApply">
+        <MappingFragment StoreEntitySet="BookingShareApply">
+          <ScalarProperty Name="BookingShareID" ColumnName="BookingShareID" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+          <ScalarProperty Name="IsAuthorized" ColumnName="IsAuthorized" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="nWayInfo" ColumnName="nWayInfo" />
+          <ScalarProperty Name="Paypal" ColumnName="Paypal" />
+          <ScalarProperty Name="nWayPoint" ColumnName="nWayPoint" />
+          <ScalarProperty Name="TaxiType" ColumnName="TaxiType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverCreditCards">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.DriverCreditCard">
+        <MappingFragment StoreEntitySet="DriverCreditCard">
+          <ScalarProperty Name="DriverCreditCardID" ColumnName="DriverCreditCardID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverFareOffers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.DriverFareOffer">
+        <MappingFragment StoreEntitySet="DriverFareOffer">
+          <ScalarProperty Name="DriverFareOfferID" ColumnName="DriverFareOfferID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="OfferFrom" ColumnName="OfferFrom" />
+          <ScalarProperty Name="OfferTo" ColumnName="OfferTo" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Fare" ColumnName="Fare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverNWaySales">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.DriverNWaySale">
+        <MappingFragment StoreEntitySet="DriverNWaySale">
+          <ScalarProperty Name="DriverNWaySaleID" ColumnName="DriverNWaySaleID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverRatings">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.DriverRating">
+        <MappingFragment StoreEntitySet="DriverRating">
+          <ScalarProperty Name="DriverRatingID" ColumnName="DriverRatingID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfferApplies">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.OfferApply">
+        <MappingFragment StoreEntitySet="OfferApply">
+          <ScalarProperty Name="OfferApplyID" ColumnName="OfferApplyID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ApplyDate" ColumnName="ApplyDate" />
+          <ScalarProperty Name="DriverFareOfferID" ColumnName="DriverFareOfferID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaneltyMasters">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.PaneltyMaster">
+        <MappingFragment StoreEntitySet="PaneltyMaster">
+          <ScalarProperty Name="PaneltyMasterID" ColumnName="PaneltyMasterID" />
+          <ScalarProperty Name="PaneltyType" ColumnName="PaneltyType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passengers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.Passenger">
+        <MappingFragment StoreEntitySet="Passenger">
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="nWayInfo" ColumnName="nWayInfo" />
+          <ScalarProperty Name="Paypal" ColumnName="Paypal" />
+          <ScalarProperty Name="nWayPoint" ColumnName="nWayPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerCreditCards">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.PassengerCreditCard">
+        <MappingFragment StoreEntitySet="PassengerCreditCard">
+          <ScalarProperty Name="PassengerCreditCard1" ColumnName="PassengerCreditCard" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerNWaySales">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.PassengerNWaySale">
+        <MappingFragment StoreEntitySet="PassengerNWaySale">
+          <ScalarProperty Name="PassengerNWaySaleID" ColumnName="PassengerNWaySaleID" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerRatings">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.PassengerRating">
+        <MappingFragment StoreEntitySet="PassengerRating">
+          <ScalarProperty Name="PassengerRatignID" ColumnName="PassengerRatignID" />
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="CrDate" ColumnName="CrDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreManagers">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.StoreManager">
+        <MappingFragment StoreEntitySet="StoreManager">
+          <ScalarProperty Name="StoreManagerID" ColumnName="StoreManagerID" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LiraTaxiDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="LiraTaxiDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

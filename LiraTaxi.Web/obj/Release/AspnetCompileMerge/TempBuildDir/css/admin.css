@@ -1,0 +1,22 @@
+.img {text-align: center;}
+.img > a img {max-width: 100%;}
+.left-panel > h3{text-align: center;background: #777;color: #fff;padding: 5px;}
+.w100{width: 100%;}
+.main-sec {
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  background-color: #f4f4f4;
+    margin-bottom: 30px;
+}
+.tbl > h3{background: #777;color: #fff;text-align: center;padding: 5px;}
+.menu-sm{margin-top: 0px;}
+.n-tabs>li>a {
+  border-radius: 0 !important;
+    color: #fff;
+  background-color: #3eb0f7;
+}
+.n-tabs>li>a:hover{color: #3eb0f7;}
+.prf > div.pp{float: left;}
+.prf > div.pro-desc{margin-left: 2%;}
+.clearfix{clear: both;}
+.prf {padding-bottom: 10px;}

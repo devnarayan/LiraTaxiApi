@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LiraTaxiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VerifyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MemberID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="Int32" />
+    <Property Name="PassengerID" Type="Int32" />
+    <Property Name="BookingType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="VehicalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PickupPoint" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationPoint" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PickupTime" Type="Time" Precision="7" />
+    <Property Name="DropTime" Type="Time" Precision="7" />
+    <Property Name="ServiceDate" Type="DateTime" Precision="3" />
+    <Property Name="BookingDate" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DriverTip" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="nWayPaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BarCode" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_Booking_Driver" FromRole="Booking" ToRole="Driver" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK_Booking_Passenger" FromRole="Booking" ToRole="Passenger" />
+    <NavigationProperty Name="BookingApplies" Relationship="Self.FK_BookingApply_Booking" FromRole="Booking" ToRole="BookingApply" />
+  </EntityType>
+  <EntityType Name="BookingApply">
+    <Key>
+      <PropertyRef Name="BookingID" />
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="ApplyTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Booking" Relationship="Self.FK_BookingApply_Booking" FromRole="BookingApply" ToRole="Booking" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_BookingApply_Driver" FromRole="BookingApply" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="BookingShare">
+    <Key>
+      <PropertyRef Name="BookingShareID" />
+    </Key>
+    <Property Name="BookingShareID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassengerID" Type="Int32" />
+    <Property Name="BookingType" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="VehicalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PickupPoint" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationPoint" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PickupTime" Type="Time" Precision="7" />
+    <Property Name="DropTime" Type="Time" Precision="7" />
+    <Property Name="ServiceDate" Type="DateTime" Precision="3" />
+    <Property Name="ShareDate" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DriverTip" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="nWayPaid" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK_BookingShare_Passenger" FromRole="BookingShare" ToRole="Passenger" />
+    <NavigationProperty Name="BookingShareApplies" Relationship="Self.FK_BookingShareApply_BookingShare" FromRole="BookingShare" ToRole="BookingShareApply" />
+  </EntityType>
+  <EntityType Name="BookingShareApply">
+    <Key>
+      <PropertyRef Name="BookingShareID" />
+      <PropertyRef Name="PassengerID" />
+    </Key>
+    <Property Name="BookingShareID" Type="Int32" Nullable="false" />
+    <Property Name="PassengerID" Type="Int32" Nullable="false" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="ApplyTime" Type="DateTime" Precision="3" />
+    <Property Name="IsAuthorized" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BookingShare" Relationship="Self.FK_BookingShareApply_BookingShare" FromRole="BookingShareApply" ToRole="BookingShare" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK_BookingShareApply_Passenger" FromRole="BookingShareApply" ToRole="Passenger" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="Age" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverID" />
+    </Key>
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DriverName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CrDate" Type="DateTime" Precision="3" />
+    <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nWayInfo" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Paypal" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="nWayPoint" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TaxiType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Driver" FromRole="Driver" ToRole="Booking" />
+    <NavigationProperty Name="BookingApplies" Relationship="Self.FK_BookingApply_Driver" FromRole="Driver" ToRole="BookingApply" />
+    <NavigationProperty Name="DriverCreditCards" Relationship="Self.FK_DriverCreditCard_Driver" FromRole="Driver" ToRole="DriverCreditCard" />
+    <NavigationProperty Name="DriverFareOffers" Relationship="Self.FK_DriverFareOffer_Driver" FromRole="Driver" ToRole="DriverFareOffer" />
+    <NavigationProperty Name="DriverNWaySales" Relationship="Self.FK_DriverNWaySale_Driver" FromRole="Driver" ToRole="DriverNWaySale" />
+    <NavigationProperty Name="DriverRatings" Relationship="Self.FK_DriverRating_Driver" FromRole="Driver" ToRole="DriverRating" />
+  </EntityType>
+  <EntityType Name="DriverCreditCard">
+    <Key>
+      <PropertyRef Name="DriverCreditCardID" />
+    </Key>
+    <Property Name="DriverCreditCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="CardType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiryDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NameOnCard" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverCreditCard_Driver" FromRole="DriverCreditCard" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="DriverFareOffer">
+    <Key>
+      <PropertyRef Name="DriverFareOfferID" />
+    </Key>
+    <Property Name="DriverFareOfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="OfferFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OfferTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Details" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CrDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Fare" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverFareOffer_Driver" FromRole="DriverFareOffer" ToRole="Driver" />
+    <NavigationProperty Name="OfferApplies" Relationship="Self.FK_OfferApply_DriverFareOffer" FromRole="DriverFareOffer" ToRole="OfferApply" />
+  </EntityType>
+  <EntityType Name="DriverNWaySale">
+    <Key>
+      <PropertyRef Name="DriverNWaySaleID" />
+    </Key>
+    <Property Name="DriverNWaySaleID" Type="Int32" Nullable="false" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverNWaySale_Driver" FromRole="DriverNWaySale" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="DriverRating">
+    <Key>
+      <PropertyRef Name="DriverRatingID" />
+    </Key>
+    <Property Name="DriverRatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="CrDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverRating_Driver" FromRole="DriverRating" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="OfferApply">
+    <Key>
+      <PropertyRef Name="OfferApplyID" />
+    </Key>
+    <Property Name="OfferApplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DriverFareOfferID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DriverFareOffer" Relationship="Self.FK_OfferApply_DriverFareOffer" FromRole="OfferApply" ToRole="DriverFareOffer" />
+  </EntityType>
+  <EntityType Name="PaneltyMaster">
+    <Key>
+      <PropertyRef Name="PaneltyMasterID" />
+    </Key>
+    <Property Name="PaneltyMasterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaneltyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Passenger">
+    <Key>
+      <PropertyRef Name="PassengerID" />
+    </Key>
+    <Property Name="PassengerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CrDate" Type="DateTime" Precision="3" />
+    <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nWayInfo" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Paypal" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="nWayPoint" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Passenger" FromRole="Passenger" ToRole="Booking" />
+    <NavigationProperty Name="BookingShares" Relationship="Self.FK_BookingShare_Passenger" FromRole="Passenger" ToRole="BookingShare" />
+    <NavigationProperty Name="BookingShareApplies" Relationship="Self.FK_BookingShareApply_Passenger" FromRole="Passenger" ToRole="BookingShareApply" />
+    <NavigationProperty Name="PassengerCreditCards" Relationship="Self.FK_PassengerCreditCard_Passenger" FromRole="Passenger" ToRole="PassengerCreditCard" />
+    <NavigationProperty Name="PassengerNWaySales" Relationship="Self.FK_PassengerNWaySale_Passenger" FromRole="Passenger" ToRole="PassengerNWaySale" />
+  </EntityType>
+  <EntityType Name="PassengerCreditCard">
+    <Key>
+      <PropertyRef Name="PassengerCreditCard1" />
+    </Key>
+    <Property Name="PassengerCreditCard1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassengerID" Type="Int32" Nullable="false" />
+    <Property Name="CardType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiryDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NameOnCard" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK_PassengerCreditCard_Passenger" FromRole="PassengerCreditCard" ToRole="Passenger" />
+  </EntityType>
+  <EntityType Name="PassengerNWaySale">
+    <Key>
+      <PropertyRef Name="PassengerNWaySaleID" />
+    </Key>
+    <Property Name="PassengerNWaySaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassengerID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK_PassengerNWaySale_Passenger" FromRole="PassengerNWaySale" ToRole="Passenger" />
+  </EntityType>
+  <EntityType Name="PassengerRating">
+    <Key>
+      <PropertyRef Name="PassengerRatignID" />
+    </Key>
+    <Property Name="PassengerRatignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassengerID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="CrDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="StoreManager">
+    <Key>
+      <PropertyRef Name="StoreManagerID" />
+    </Key>
+    <Property Name="StoreManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="PassengerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingApply_Booking">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+    <End Role="BookingApply" Type="Self.BookingApply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="BookingApply">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingApply_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="BookingApply" Type="Self.BookingApply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="BookingApply">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingShare_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="0..1" />
+    <End Role="BookingShare" Type="Self.BookingShare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerID" />
+      </Principal>
+      <Dependent Role="BookingShare">
+        <PropertyRef Name="PassengerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingShareApply_BookingShare">
+    <End Role="BookingShare" Type="Self.BookingShare" Multiplicity="1" />
+    <End Role="BookingShareApply" Type="Self.BookingShareApply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingShare">
+        <PropertyRef Name="BookingShareID" />
+      </Principal>
+      <Dependent Role="BookingShareApply">
+        <PropertyRef Name="BookingShareID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingShareApply_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="1" />
+    <End Role="BookingShareApply" Type="Self.BookingShareApply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerID" />
+      </Principal>
+      <Dependent Role="BookingShareApply">
+        <PropertyRef Name="PassengerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverCreditCard_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="DriverCreditCard" Type="Self.DriverCreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverCreditCard">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverFareOffer_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="DriverFareOffer" Type="Self.DriverFareOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverFareOffer">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverNWaySale_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="DriverNWaySale" Type="Self.DriverNWaySale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverNWaySale">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverRating_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="DriverRating" Type="Self.DriverRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverID" />
+      </Principal>
+      <Dependent Role="DriverRating">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfferApply_DriverFareOffer">
+    <End Role="DriverFareOffer" Type="Self.DriverFareOffer" Multiplicity="1" />
+    <End Role="OfferApply" Type="Self.OfferApply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DriverFareOffer">
+        <PropertyRef Name="DriverFareOfferID" />
+      </Principal>
+      <Dependent Role="OfferApply">
+        <PropertyRef Name="DriverFareOfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassengerCreditCard_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="1" />
+    <End Role="PassengerCreditCard" Type="Self.PassengerCreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerID" />
+      </Principal>
+      <Dependent Role="PassengerCreditCard">
+        <PropertyRef Name="PassengerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassengerNWaySale_Passenger">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="1" />
+    <End Role="PassengerNWaySale" Type="Self.PassengerNWaySale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="PassengerID" />
+      </Principal>
+      <Dependent Role="PassengerNWaySale">
+        <PropertyRef Name="PassengerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LiraTaxiDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="BookingApplies" EntityType="Self.BookingApply" />
+    <EntitySet Name="BookingShares" EntityType="Self.BookingShare" />
+    <EntitySet Name="BookingShareApplies" EntityType="Self.BookingShareApply" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="DriverCreditCards" EntityType="Self.DriverCreditCard" />
+    <EntitySet Name="DriverFareOffers" EntityType="Self.DriverFareOffer" />
+    <EntitySet Name="DriverNWaySales" EntityType="Self.DriverNWaySale" />
+    <EntitySet Name="DriverRatings" EntityType="Self.DriverRating" />
+    <EntitySet Name="OfferApplies" EntityType="Self.OfferApply" />
+    <EntitySet Name="PaneltyMasters" EntityType="Self.PaneltyMaster" />
+    <EntitySet Name="Passengers" EntityType="Self.Passenger" />
+    <EntitySet Name="PassengerCreditCards" EntityType="Self.PassengerCreditCard" />
+    <EntitySet Name="PassengerNWaySales" EntityType="Self.PassengerNWaySale" />
+    <EntitySet Name="PassengerRatings" EntityType="Self.PassengerRating" />
+    <EntitySet Name="StoreManagers" EntityType="Self.StoreManager" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Driver" Association="Self.FK_Booking_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Passenger" Association="Self.FK_Booking_Passenger">
+      <End Role="Passenger" EntitySet="Passengers" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingApply_Booking" Association="Self.FK_BookingApply_Booking">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="BookingApply" EntitySet="BookingApplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingApply_Driver" Association="Self.FK_BookingApply_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="BookingApply" EntitySet="BookingApplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingShare_Passenger" Association="Self.FK_BookingShare_Passenger">
+      <End Role="Passenger" EntitySet="Passengers" />
+      <End Role="BookingShare" EntitySet="BookingShares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingShareApply_BookingShare" Association="Self.FK_BookingShareApply_BookingShare">
+      <End Role="BookingShare" EntitySet="BookingShares" />
+      <End Role="BookingShareApply" EntitySet="BookingShareApplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingShareApply_Passenger" Association="Self.FK_BookingShareApply_Passenger">
+      <End Role="Passenger" EntitySet="Passengers" />
+      <End Role="BookingShareApply" EntitySet="BookingShareApplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverCreditCard_Driver" Association="Self.FK_DriverCreditCard_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverCreditCard" EntitySet="DriverCreditCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverFareOffer_Driver" Association="Self.FK_DriverFareOffer_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverFareOffer" EntitySet="DriverFareOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverNWaySale_Driver" Association="Self.FK_DriverNWaySale_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverNWaySale" EntitySet="DriverNWaySales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverRating_Driver" Association="Self.FK_DriverRating_Driver">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="DriverRating" EntitySet="DriverRatings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfferApply_DriverFareOffer" Association="Self.FK_OfferApply_DriverFareOffer">
+      <End Role="DriverFareOffer" EntitySet="DriverFareOffers" />
+      <End Role="OfferApply" EntitySet="OfferApplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassengerCreditCard_Passenger" Association="Self.FK_PassengerCreditCard_Passenger">
+      <End Role="Passenger" EntitySet="Passengers" />
+      <End Role="PassengerCreditCard" EntitySet="PassengerCreditCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassengerNWaySale_Passenger" Association="Self.FK_PassengerNWaySale_Passenger">
+      <End Role="Passenger" EntitySet="Passengers" />
+      <End Role="PassengerNWaySale" EntitySet="PassengerNWaySales" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

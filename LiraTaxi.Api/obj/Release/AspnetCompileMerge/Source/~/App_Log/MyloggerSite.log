@@ -1,0 +1,2 @@
+2015-06-23 18:13:03,803 [6] INFO LiraTaxi.Api.Controllers.DriverController [(null)] - Hello Nine Thanks for use Log4Net,This is info message
+2015-06-23 18:13:32,927 [5] INFO LiraTaxi.Api.Controllers.DriverController [(null)] - Hello Nine Thanks for use Log4Net,This is info message

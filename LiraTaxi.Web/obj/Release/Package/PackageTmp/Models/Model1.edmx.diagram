@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55b8eb0f10fd473c9543bdaca4b0e19b" Name="Diagram1">
+        <EntityTypeShape EntityType="LiraTaxiDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.AspNetUser" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.Booking" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.BookingApply" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.BookingShare" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.BookingShareApply" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.Customer" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.Driver" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.DriverCreditCard" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.DriverFareOffer" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.DriverNWaySale" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.DriverRating" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.OfferApply" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.PaneltyMaster" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.Passenger" Width="1.5" PointX="3.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.PassengerCreditCard" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.PassengerNWaySale" Width="1.5" PointX="6" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.PassengerRating" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.StoreManager" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LiraTaxiDBModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_Booking_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_Booking_Passenger" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_BookingApply_Booking" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_BookingApply_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_BookingShare_Passenger" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_BookingShareApply_BookingShare" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_BookingShareApply_Passenger" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_DriverCreditCard_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_DriverFareOffer_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_DriverNWaySale_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_DriverRating_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_OfferApply_DriverFareOffer" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_PassengerCreditCard_Passenger" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.FK_PassengerNWaySale_Passenger" ManuallyRouted="false" />
+        <AssociationConnector Association="LiraTaxiDBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

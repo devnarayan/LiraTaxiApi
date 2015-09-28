@@ -1,0 +1,5 @@
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data\bin\Debug\LiraTaxi.Data.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data\bin\Debug\LiraTaxi.Data.pdb
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data\obj\Debug\LiraTaxi.Data.dll
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data\obj\Debug\LiraTaxi.Data.pdb
+E:\Lira Taxi\1. SourceCode\LiraTaxi.Api\LiraTaxi.Data\obj\Debug\LiraTaxi.Data.csprojResolveAssemblyReference.cache

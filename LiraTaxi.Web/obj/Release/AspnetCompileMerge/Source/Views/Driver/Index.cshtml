@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #mydiv {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: grey;
+        opacity: .8;
+    }
+
+    .ajax-loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -32px; /* -1 * image width / 2 */
+        margin-top: -32px; /* -1 * image height / 2 */
+        display: block;
+    }
+</style>
+<div data-ng-controller="driverController" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <strong class="error">{{ error }}</strong>
+            <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a></p>
+            <form name="adddriver" data-ng-show="addMode" style="width:600px;margin:0px auto;">
+                <div class="form-group">
+                    <label for="cid" class="col-sm-3 control-label">ID:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="cid" placeholder="please enter id" data-ng-model="newdriver.DriverID" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cname" class="col-sm-3 control-label">User Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="cname" placeholder="please enter User name" data-ng-model="newdriver.UserName" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cname" class="col-sm-3 control-label">Driver Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="cname" placeholder="please enter your name" data-ng-model="newdriver.DriverName" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cname" class="col-sm-3 control-label">Email:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="Email" placeholder="please enter your name" data-ng-model="newdriver.Email" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cname" class="col-sm-3 control-label">Mobile:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="Mobile" placeholder="please enter your name" data-ng-model="newdriver.Mobile" required />
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!adddriver.$valid" class="btn btn-primary" />
+                        <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                    </div>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" style="width:800px">
+                    <tr>
+                        <th>#</th>
+                        <td>Driver Name</td>
+                        <th>Email</th>
+                        <th>UserName</th>
+                        <th>nWay Points</th>
+                        <th>Mobile</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    <tr data-ng-repeat="driver in drivers">
+                        <td><strong data-ng-hide="driver.editMode">{{ driver.DriverID }}</strong></td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.DriverName }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.DriverName" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.Email }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.Email" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.UserName }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.UserName" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.nWayPoint }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.nWayPoint" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.Mobile }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.Mobile" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode">{{ driver.Status }}</p>
+                            <input data-ng-show="driver.editMode" type="text" data-ng-model="driver.Status" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="driver.editMode"><a data-ng-click="toggleEdit(driver)" href="javascript:;">Edit</a> | <a data-ng-click="deletedriver(driver)" href="javascript:;">Delete</a></p>
+                            <p data-ng-show="driver.editMode"><a data-ng-click="save(driver)" href="javascript:;">Save</a> | <a data-ng-click="toggleEdit(driver)" href="javascript:;">Cancel</a></p>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <div id="mydiv" data-ng-show="loading">
+        <img src="~/Images/ajax-loader.gif" class="ajax-loader" />
+    </div>
+</div>
+
+@section scripts{
+<script src="~/Agjs/driverjs.js"></script>
+}
+
